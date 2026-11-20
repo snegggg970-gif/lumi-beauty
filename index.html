@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ef">
+  <meta name="description" content="LUMI BEAUTY — демонстрационный сайт студии красоты. Маникюр, педикюр и дизайн ногтей в эстетике премиального минимализма.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LUMI BEAUTY — Красота в деталях">
+  <meta property="og:description" content="Пространство красоты, эстетики и заботы о себе. Демонстрационный проект FORMA AI.">
+  <meta property="og:locale" content="ru_RU">
+  <title>LUMI BEAUTY — Студия красоты | Красота в деталях</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "LUMI BEAUTY",
+    "description": "Демонстрационный сайт студии красоты LUMI BEAUTY. Проект портфолио FORMA AI.",
+    "knowsAbout": ["Маникюр", "Педикюр", "Дизайн ногтей"]
+  }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --cream: #f7f4ef;
+      --paper: #fcfaf7;
+      --sand: #e9dfd3;
+      --sand-deep: #d7c6b5;
+      --brown: #927764;
+      --brown-dark: #725b4b;
+      --ink: #292521;
+      --muted: #81776e;
+      --line: #e5ddd4;
+      --white: #fff;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --shadow: 0 22px 60px rgba(54, 43, 34, .09);
+      --container: 1180px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button, a, input, select { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; }
+    ::selection { background: #d9c7b6; color: var(--ink); }
+
+    .skip-link {
+      position: fixed; z-index: 1000; top: 12px; left: 12px;
+      padding: 12px 18px; background: var(--ink); color: var(--white);
+      transform: translateY(-160%); transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    :focus-visible { outline: 2px solid var(--brown-dark); outline-offset: 4px; }
+    .container { width: min(var(--container), calc(100% - 64px)); margin-inline: auto; }
+    .section { padding: 112px 0; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      color: var(--brown-dark); text-transform: uppercase;
+      letter-spacing: .22em; font-size: 10px; font-weight: 700;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+    h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 58px); line-height: 1.12; letter-spacing: -.035em; }
+    .section-heading { max-width: 650px; margin: 0 auto 54px; text-align: center; }
+    .section-heading .eyebrow { justify-content: center; }
+    .section-heading h2 { margin-top: 17px; }
+    .section-description { margin: 17px auto 0; max-width: 490px; color: var(--muted); font-size: 14px; }
+
+    .button {
+      min-height: 54px; display: inline-flex; align-items: center; justify-content: center;
+      gap: 12px; padding: 15px 27px; border: 1px solid var(--ink);
+      background: var(--ink); color: var(--white); cursor: pointer;
+      font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+    }
+    .button:hover { background: var(--brown-dark); border-color: var(--brown-dark); transform: translateY(-2px); }
+    .button-light { background: transparent; color: var(--ink); }
+    .button-light:hover { color: var(--white); }
+    .button-arrow { font-size: 17px; line-height: 1; }
+
+    /* Header */
+    .site-header {
+      position: sticky; z-index: 100; top: 0;
+      background: rgba(247, 244, 239, .94);
+      border-bottom: 1px solid rgba(215, 203, 191, .7);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+    .navbar { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .logo { display: inline-flex; flex-direction: column; align-items: center; flex: 0 0 auto; line-height: 1; }
+    .logo-main { font-family: var(--serif); font-size: 29px; letter-spacing: .19em; }
+    .logo-sub { margin-top: 8px; color: var(--brown); font-size: 8px; letter-spacing: .48em; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.5vw, 34px); padding: 0; margin: 0; list-style: none; }
+    .nav-links a { position: relative; padding: 10px 0; color: #5f5851; font-size: 12px; transition: color .2s ease; }
+    .nav-links a::after { content: ""; position: absolute; right: 0; bottom: 3px; left: 0; height: 1px; background: var(--brown); transform: scaleX(0); transform-origin: right; transition: transform .25s ease; }
+    .nav-links a:hover { color: var(--brown-dark); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .header-cta { min-height: 44px; padding: 11px 19px; font-size: 10px; }
+    .menu-toggle {
+      display: none; width: 46px; height: 46px; padding: 0;
+      border: 1px solid var(--line); background: transparent; cursor: pointer;
+      align-items: center; justify-content: center;
+    }
+    .menu-icon, .menu-icon::before, .menu-icon::after {
+      display: block; width: 19px; height: 1px; background: var(--ink);
+      transition: transform .2s ease, top .2s ease;
+    }
+    .menu-icon { position: relative; }
+    .menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+    .menu-icon::before { top: -6px; }
+    .menu-icon::after { top: 6px; }
+    .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+    .menu-toggle[aria-expanded="true"] .menu-icon::before { top: 0; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-icon::after { top: 0; transform: rotate(-45deg); }
+
+    /* Hero */
+    .hero {
+      position: relative; min-height: min(740px, calc(100svh - 84px));
+      display: grid; grid-template-columns: minmax(0, .91fr) minmax(0, 1.09fr);
+      background: var(--sand); overflow: hidden;
+    }
+    .hero-content {
+      position: relative; z-index: 1; display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: center;
+      padding: 90px max(7%, calc((100vw - var(--container)) / 2));
+      padding-right: clamp(38px, 6vw, 90px);
+    }
+    .hero-kicker { margin-bottom: 18px; }
+    .hero h1 { max-width: 590px; margin: 0 0 24px; font-size: clamp(58px, 7.1vw, 98px); line-height: .99; letter-spacing: -.055em; }
+    .hero h1 em { color: var(--brown-dark); font-weight: 400; }
+    .hero-copy { max-width: 390px; margin-bottom: 35px; color: #6f655c; font-size: 15px; line-height: 1.85; }
+    .hero-note { display: flex; align-items: center; gap: 13px; margin-top: 42px; color: #75685e; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+    .hero-note::before { content: ""; width: 38px; height: 1px; background: var(--brown); }
+    .hero-image { position: relative; min-height: 620px; background: #d8c8b8; }
+    .hero-image img { position: absolute; inset: 0; height: 100%; object-position: center; }
+    .hero-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(41,37,33,.08), transparent 35%); pointer-events: none; }
+    .hero-stamp {
+      position: absolute; right: 34px; bottom: 34px; z-index: 2;
+      display: grid; place-items: center; width: 112px; height: 112px;
+      border: 1px solid rgba(255,255,255,.8); border-radius: 50%;
+      color: white; text-align: center; font-family: var(--serif); font-size: 15px;
+      line-height: 1.25; background: rgba(48,40,34,.13); backdrop-filter: blur(5px);
+    }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; }
+    .service-card { min-width: 0; background: var(--paper); transition: transform .3s ease, box-shadow .3s ease; }
+    .service-card:hover { transform: translateY(-7px); box-shadow: var(--shadow); }
+    .service-photo { position: relative; overflow: hidden; aspect-ratio: 1 / 1.05; background: var(--sand); }
+    .service-photo img { height: 100%; transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+    .service-card:hover .service-photo img { transform: scale(1.045); }
+    .service-number { position: absolute; top: 17px; left: 18px; color: white; font-size: 10px; letter-spacing: .15em; text-shadow: 0 1px 8px #0008; }
+    .service-info { padding: 26px 25px 29px; }
+    .service-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+    .service-info h3 { margin: 0; font-size: 28px; line-height: 1.2; }
+    .service-price { flex: 0 0 auto; color: var(--brown-dark); font-size: 13px; font-weight: 700; }
+    .service-info p { min-height: 50px; margin: 13px 0 20px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .text-link { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .text-link span { transition: transform .2s ease; }
+    .text-link:hover span { transform: translateX(5px); }
+
+    /* About */
+    .about { background: #eee7df; }
+    .about-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(45px, 8vw, 110px); align-items: center; }
+    .about-image { position: relative; padding: 0 25px 25px 0; }
+    .about-image::after { content: ""; position: absolute; z-index: 0; right: 0; bottom: 0; width: 72%; height: 72%; border: 1px solid #bda995; }
+    .about-image img { position: relative; z-index: 1; height: 560px; object-position: center; }
+    .about-text h2 { margin: 18px 0 24px; }
+    .about-text > p { color: #70665e; font-size: 14px; line-height: 1.9; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 28px; margin: 35px 0; }
+    .feature { padding-top: 13px; border-top: 1px solid #c8b8a9; font-size: 12px; font-weight: 600; }
+    .feature span { display: block; margin-bottom: 6px; color: var(--brown); font-size: 10px; letter-spacing: .12em; }
+
+    /* Gallery */
+    .gallery-grid { display: grid; grid-template-columns: 1.05fr .82fr 1.05fr; gap: 16px; align-items: center; }
+    .gallery-item { position: relative; overflow: hidden; background: var(--sand); }
+    .gallery-item:nth-child(2) { margin-top: 55px; }
+    .gallery-item:nth-child(3) { margin-top: -25px; }
+    .gallery-item img { height: 360px; transition: transform .6s ease; }
+    .gallery-item:nth-child(2) img { height: 300px; }
+    .gallery-item:hover img { transform: scale(1.045); }
+    .gallery-caption { position: absolute; right: 0; bottom: 0; left: 0; padding: 34px 18px 15px; color: white; font-family: var(--serif); font-size: 18px; background: linear-gradient(transparent, rgba(20,17,15,.48)); }
+
+    /* Reviews */
+    .reviews { background: #eae1d8; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .review-card { padding: 34px 30px 30px; background: rgba(255,255,255,.62); }
+    .review-mark { margin-bottom: 17px; color: var(--brown); font-family: var(--serif); font-size: 42px; line-height: .8; }
+    .review-card blockquote { margin: 0 0 24px; color: #6d6259; font-family: var(--serif); font-size: 19px; line-height: 1.55; }
+    .review-card strong { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .demo-label { display: block; margin-top: 12px; color: var(--brown-dark); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+
+    /* Contacts */
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(45px, 8vw, 105px); align-items: start; }
+    .contact-info h2 { margin: 18px 0 22px; }
+    .contact-intro { max-width: 380px; color: var(--muted); font-size: 14px; }
+    .contact-item { margin-top: 28px; }
+    .contact-item small { display: block; margin-bottom: 6px; color: var(--brown-dark); font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .contact-item div { color: #5f5750; font-size: 13px; }
+    .demo-contact-note { max-width: 350px; margin-top: 24px; padding: 13px 15px; border-left: 2px solid var(--brown); background: #eee9e2; color: #71675e; font-size: 11px; line-height: 1.6; }
+    .contact-form { padding: clamp(26px, 4vw, 48px); background: var(--paper); box-shadow: var(--shadow); }
+    .contact-form h3 { margin-bottom: 8px; font-size: 32px; }
+    .form-intro { margin-bottom: 27px; color: var(--muted); font-size: 12px; }
+    .form-group { margin-bottom: 19px; }
+    .form-group label { display: block; margin-bottom: 8px; color: #625950; font-size: 11px; font-weight: 600; }
+    .form-group input, .form-group select {
+      width: 100%; min-height: 52px; padding: 13px 15px;
+      border: 1px solid #ded6cd; border-radius: 0; background: #faf8f5;
+      color: var(--ink); font-size: 13px; transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .form-group input::placeholder { color: #aaa096; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--brown); box-shadow: 0 0 0 3px rgba(146,119,100,.12); }
+    .form-note { margin: 0 0 20px; color: #80756b; font-size: 10px; line-height: 1.6; }
+    .contact-form .button { width: 100%; }
+    .form-message { min-height: 24px; margin-top: 15px; color: var(--brown-dark); font-size: 12px; line-height: 1.6; }
+    .form-message:empty { display: none; }
+
+    /* Footer */
+    .site-footer { padding: 48px 0 25px; background: var(--ink); color: white; text-align: center; }
+    .site-footer .logo-sub { color: #c7ad99; }
+    .footer-caption { margin: 22px 0 0; color: #c7bdb4; font-size: 11px; }
+    .footer-bottom { margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.13); color: #a99f96; font-size: 10px; }
+
+    @media (max-width: 980px) {
+      .container { width: min(var(--container), calc(100% - 48px)); }
+      .nav-links { gap: 17px; }
+      .header-cta { padding-inline: 14px; }
+      .hero { min-height: 620px; }
+      .hero-content { padding-left: 7%; padding-right: 5%; }
+      .hero h1 { font-size: clamp(58px, 8vw, 78px); }
+      .about-grid { gap: 48px; }
+      .about-image img { height: 480px; }
+      .service-info { padding-inline: 19px; }
+      .service-info h3 { font-size: 25px; }
+      .service-title-row { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 76px; }
+      .container { width: calc(100% - 40px); }
+      .section { padding: 82px 0; }
+      .navbar { min-height: 74px; }
+      .menu-toggle { display: inline-flex; margin-left: auto; }
+      .header-cta { display: none; }
+      .nav-links {
+        position: fixed; top: 74px; right: 0; bottom: 0; left: 0; z-index: 99;
+        display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
+        gap: 0; padding: 24px 28px 40px; background: var(--cream);
+        visibility: hidden; opacity: 0; transform: translateY(-8px);
+        transition: opacity .2s ease, transform .2s ease, visibility .2s;
+      }
+      .nav-links.is-open { visibility: visible; opacity: 1; transform: translateY(0); }
+      .nav-links li { border-bottom: 1px solid var(--line); }
+      .nav-links a { display: block; padding: 17px 0; font-family: var(--serif); font-size: 25px; color: var(--ink); }
+      .nav-links a::after { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { min-height: 510px; padding: 76px 8% 66px; }
+      .hero h1 { max-width: 550px; font-size: clamp(62px, 12vw, 88px); }
+      .hero-image { min-height: 430px; }
+      .hero-note { margin-top: 30px; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+      .service-info { padding: 20px 17px 23px; }
+      .service-info h3 { font-size: 24px; }
+      .service-info p { min-height: 68px; font-size: 12px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 42px; }
+      .about-image { max-width: 580px; }
+      .about-image img { height: 470px; }
+      .about-text { max-width: 620px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .gallery-item:nth-child(2), .gallery-item:nth-child(3) { margin: 0; }
+      .gallery-item:nth-child(3) { grid-column: 1 / -1; width: 70%; justify-self: center; }
+      .gallery-item img, .gallery-item:nth-child(2) img { height: 300px; }
+      .gallery-item:nth-child(3) img { height: 260px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .review-card { padding: 28px; }
+      .contact-info { max-width: 600px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { width: calc(100% - 36px); }
+      .section { padding: 70px 0; }
+      .section-heading { margin-bottom: 36px; }
+      .section-heading h2, h2 { font-size: 40px; }
+      .logo-main { font-size: 26px; }
+      .hero-content { min-height: 470px; padding: 65px 7% 55px; }
+      .hero h1 { font-size: clamp(56px, 15vw, 72px); }
+      .hero-copy { max-width: 330px; font-size: 13px; }
+      .hero-image { min-height: 350px; }
+      .hero-stamp { right: 18px; bottom: 18px; width: 88px; height: 88px; font-size: 13px; }
+      .services-grid { grid-template-columns: 1fr; gap: 20px; }
+      .service-photo { aspect-ratio: 1.25 / 1; }
+      .service-info p { min-height: 0; }
+      .features { gap: 17px 14px; }
+      .feature { font-size: 11px; }
+      .about-image img { height: 370px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item img, .gallery-item:nth-child(2) img { height: 220px; }
+      .gallery-item:nth-child(3) { width: 82%; }
+      .gallery-item:nth-child(3) img { height: 220px; }
+      .gallery-caption { font-size: 15px; }
+      .contact-form { padding: 25px 20px; }
+      .contact-form h3 { font-size: 29px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="#top" class="logo" aria-label="LUMI BEAUTY — на главную">
+        <span class="logo-main">LUMI</span>
+        <span class="logo-sub">BEAUTY STUDIO</span>
+      </a>
+
+      <nav aria-label="Основная навигация">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#about">О салоне</a></li>
+          <li><a href="#gallery">Работы</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contacts" class="button header-cta">Записаться <span class="button-arrow" aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button"
+        aria-label="Открыть меню" aria-controls="navLinks" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="hero-content">
+        <span class="eyebrow hero-kicker">Пространство красоты</span>
+        <h1 id="heroTitle">Красота<br><em>в деталях.</em></h1>
+        <p class="hero-copy">
+          Место, где забота о себе становится маленьким искусством.
+          Профессиональный уход, спокойная атмосфера и внимание к каждой детали.
+        </p>
+        <a href="#services" class="button">Открыть мир LUMI <span class="button-arrow" aria-hidden="true">↗</span></a>
+        <div class="hero-note">Эстетика начинается с заботы о себе</div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&q=85"
+          alt="Элегантный маникюр в нейтральных оттенках" fetchpriority="high" decoding="async">
+        <div class="hero-stamp" aria-hidden="true">A moment<br>for you</div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="servicesTitle">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Наши направления</span>
+          <h2 id="servicesTitle">Услуги и цены</h2>
+          <p class="section-description">Профессиональный уход с любовью к деталям — для вашего настроения и уверенности.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-photo">
+              <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=82"
+                alt="Аккуратный маникюр с нюдовым покрытием" loading="lazy" decoding="async">
+              <span class="service-number">01 / CARE</span>
+            </div>
+            <div class="service-info">
+              <div class="service-title-row"><h3>Маникюр</h3><span class="service-price">от 2 000 ₽</span></div>
+              <p>Уход за ногтями, деликатная обработка формы и аккуратное покрытие.</p>
+              <a class="text-link" href="#contacts">Выбрать услугу <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-photo">
+              <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=900&q=82"
+                alt="Процедура ухода за ногами" loading="lazy" decoding="async">
+              <span class="service-number">02 / CARE</span>
+            </div>
+            <div class="service-info">
+              <div class="service-title-row"><h3>Педикюр</h3><span class="service-price">от 2 500 ₽</span></div>
+              <p>Комплексный уход, комфорт и ощущение лёгкости в каждом шаге.</p>
+              <a class="text-link" href="#contacts">Выбрать услугу <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-photo">
+              <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=900&q=82"
+                alt="Дизайн ногтей с тонкими декоративными деталями" loading="lazy" decoding="async">
+              <span class="service-number">03 / ART</span>
+            </div>
+            <div class="service-info">
+              <div class="service-title-row"><h3>Дизайн</h3><span class="service-price">от 500 ₽</span></div>
+              <p>Индивидуальные детали и эстетичные решения, подчёркивающие ваш стиль.</p>
+              <a class="text-link" href="#contacts">Выбрать услугу <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="section-description" style="margin-top:24px;font-size:11px;">Цены приведены для демонстрации макета и не являются действующим прайс-листом.</p>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="aboutTitle">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=1100&q=85"
+            alt="Светлый интерьер и рабочее пространство beauty-студии" loading="lazy" decoding="async">
+        </div>
+        <div class="about-text">
+          <span class="eyebrow">Наша философия</span>
+          <h2 id="aboutTitle">Время<br>для себя.</h2>
+          <p>LUMI BEAUTY — пространство для тех, кто ценит эстетику, комфорт и профессиональный уход.</p>
+          <p>Мы верим, что красота начинается с заботы о себе. Поэтому в центре внимания — ваше настроение, индивидуальность и удовольствие от маленьких ритуалов.</p>
+          <div class="features">
+            <div class="feature"><span>01</span>Внимание к деталям</div>
+            <div class="feature"><span>02</span>Комфортная атмосфера</div>
+            <div class="feature"><span>03</span>Профессиональный подход</div>
+            <div class="feature"><span>04</span>Индивидуальный стиль</div>
+          </div>
+          <a href="#contacts" class="button button-light">Запланировать визит <span class="button-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Эстетика в каждом штрихе</span>
+          <h2 id="galleryTitle">Галерея работ</h2>
+          <p class="section-description">Визуальное настроение LUMI BEAUTY — лаконичность, чистые линии и естественная красота.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=82"
+              alt="Маникюр в спокойной нюдовой гамме" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">Чистая эстетика</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=82"
+              alt="Детали дизайна ногтей" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">Искусство деталей</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=900&q=82"
+              alt="Интерьер и атмосфера студии красоты" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">Место для себя</figcaption>
+          </figure>
+        </div>
+        <p class="section-description" style="margin-top:22px;font-size:11px;">Изображения используются как визуальные примеры для демонстрационного проекта.</p>
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Ваши впечатления</span>
+          <h2 id="reviewsTitle">Отзывы клиентов</h2>
+          <p class="section-description">Ниже — примеры оформления блока. Это демонстрационные тексты, а не реальные отзывы клиентов.</p>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-mark" aria-hidden="true">“</div>
+            <blockquote>Очень уютная атмосфера, внимательный подход и прекрасный результат.</blockquote>
+            <strong>Пример отзыва 01</strong>
+            <span class="demo-label">Демонстрационный текст</span>
+          </article>
+          <article class="review-card">
+            <div class="review-mark" aria-hidden="true">“</div>
+            <blockquote>Всё очень красиво и аккуратно. Именно такое настроение хочется сохранить.</blockquote>
+            <strong>Пример отзыва 02</strong>
+            <span class="demo-label">Демонстрационный текст</span>
+          </article>
+          <article class="review-card">
+            <div class="review-mark" aria-hidden="true">“</div>
+            <blockquote>Приятное пространство, качественная работа и внимание к мелочам.</blockquote>
+            <strong>Пример отзыва 03</strong>
+            <span class="demo-label">Демонстрационный текст</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts" aria-labelledby="contactsTitle">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <span class="eyebrow">Будем рады встрече</span>
+          <h2 id="contactsTitle">Запишитесь<br>на визит.</h2>
+          <p class="contact-intro">Выберите услугу и оставьте контактные данные в демонстрационной форме ниже.</p>
+
+          <div class="contact-item">
+            <small>Адрес</small>
+            <div>Не указан — демонстрационный проект</div>
+          </div>
+          <div class="contact-item">
+            <small>Время работы</small>
+            <div>Не указано — демонстрационный проект</div>
+          </div>
+          <div class="contact-item">
+            <small>Телефон</small>
+            <div>Не указан — демонстрационный проект</div>
+          </div>
+          <div class="demo-contact-note">LUMI BEAUTY — вымышленный салон для портфолио ИИ-студии FORMA AI. Реальные контакты и адрес не предоставлены.</div>
+        </div>
+
+        <form class="contact-form" id="bookingForm">
+          <h3>Оставить заявку</h3>
+          <p class="form-intro">Заполните поля, чтобы посмотреть работу формы.</p>
+
+          <div class="form-group">
+            <label for="clientName">Ваше имя</label>
+            <input id="clientName" name="name" type="text" placeholder="Как к вам обращаться?"
+              autocomplete="name" minlength="2" maxlength="60" required>
+          </div>
+          <div class="form-group">
+            <label for="clientPhone">Номер телефона</label>
+            <input id="clientPhone" name="phone" type="tel" placeholder="+7 (___) ___-__-__"
+              autocomplete="tel" inputmode="tel" maxlength="25" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Выберите услугу</label>
+            <select id="service" name="service" required>
+              <option value="">Выберите услугу</option>
+              <option value="Маникюр">Маникюр</option>
+              <option value="Педикюр">Педикюр</option>
+              <option value="Дизайн ногтей">Дизайн ногтей</option>
+            </select>
+          </div>
+          <p class="form-note">Демонстрационный режим: данные никуда не отправляются и не сохраняются. Для приёма реальных заявок необходимо подключить сервер или сервис записи.</p>
+          <button type="submit" class="button">Проверить форму <span class="button-arrow" aria-hidden="true">↗</span></button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="#top" class="logo" aria-label="LUMI BEAUTY — наверх">
+      <span class="logo-main">LUMI</span>
+      <span class="logo-sub">BEAUTY STUDIO</span>
+    </a>
+    <p class="footer-caption">Красота в деталях. Время для себя.</p>
+    <div class="container footer-bottom">© <span id="currentYear">2026</span> LUMI BEAUTY · Демонстрационный проект FORMA AI</div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      const menuItems = navLinks.querySelectorAll("a");
+      const bookingForm = document.getElementById("bookingForm");
+      const formMessage = document.getElementById("formMessage");
+
+      function closeMenu({ returnFocus = false } = {}) {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Открыть меню");
+        document.body.classList.remove("menu-open");
+        if (returnFocus) menuToggle.focus();
+      }
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        if (isOpen) {
+          closeMenu();
+        } else {
+          navLinks.classList.add("is-open");
+          menuToggle.setAttribute("aria-expanded", "true");
+          menuToggle.setAttribute("aria-label", "Закрыть меню");
+          document.body.classList.add("menu-open");
+          menuItems[0]?.focus();
+        }
+      });
+
+      menuItems.forEach((link) => {
+        link.addEventListener("click", () => closeMenu());
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+          closeMenu({ returnFocus: true });
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) closeMenu();
+      });
+
+      bookingForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        formMessage.textContent = "";
+
+        if (!bookingForm.reportValidity()) return;
+
+        formMessage.textContent =
+          "Проверка пройдена. Это демонстрационная форма: заявка НЕ отправлена, данные не сохранены. Для реальной записи нужно подключить обработчик заявок.";
+      });
+
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
